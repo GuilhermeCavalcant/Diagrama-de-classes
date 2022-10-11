@@ -1,0 +1,47 @@
+@startuml
+class Person{
+    # String: name
+    # String: Cpf
+}
+class Employee{
+    # double: wage
+    # double: evaluation
+}
+class Attendant{
+    + presentsMenu()
+    + takeOrder()
+}
+class Chef{
+    
+    + presentsDishes()
+}
+class Client{
+    # tableName
+    
+    + makeOrder()
+    + evaluationOrder()
+}
+class Company{
+    # double: customerReview
+    # double: dailyProfit
+    # ArryList: employee
+
+}
+class Order{
+    # int: idOrder
+}
+
+Employee"inheritance of" ---|> Person
+Client "\n\n\ninheritance of"---|> Person
+Attendant "inheritance of" ---|> Employee
+Chef "inheritance of"---|> Employee
+
+Client "avalia" ---* Company 
+Employee "\n\nIt works" --* Company
+Client "\nrequest order" ---* Attendant
+Attendant"\n\n make Order" --* Order
+Chef  "place orde" --> Order
+
+
+
+@enduml
